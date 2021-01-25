@@ -27,10 +27,6 @@ class DoneListViewController: UITableViewController {
         let newItem3 = Item()
         newItem3.title = "Walk dogs"
         itemArray.append(newItem3)
-        
-//        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
-//            itemArray = items
-//        }
     }
     
     //Mark TableView DataSource Methods
@@ -60,15 +56,11 @@ class DoneListViewController: UITableViewController {
         if itemArray[indexPath.row].done == false {
             itemArray[indexPath.row].done = true
         } else {
-            itemArray[indexPath.row].done = true
+            itemArray[indexPath.row].done = false
         }
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-        
+        tableView.reloadData()
+    
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
