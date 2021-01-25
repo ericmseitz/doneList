@@ -42,11 +42,7 @@ class DoneListViewController: UITableViewController {
         
         cell.textLabel?.text = item.title
         
-        if item.done == true {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.accessoryType = item.done == true ? .checkmark : .none
         
         return cell
     }
